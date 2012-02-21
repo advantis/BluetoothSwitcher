@@ -11,6 +11,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2860E328111B887F00E27156 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2860E326111B887F00E27156 /* ApplicationDelegate.m */; };
+		6A0E55DE14F418A000F66A8D /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A0E55DD14F418A000F66A8D /* Entitlements.plist */; };
 		6AAF12AC12B8DDED0010B874 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AAF12A612B8DDEB0010B874 /* Icon-72.png */; };
 		6AAF12AD12B8DDED0010B874 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AAF12A712B8DDEC0010B874 /* Icon-Small-50.png */; };
 		6AAF12AE12B8DDED0010B874 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AAF12A812B8DDEC0010B874 /* Icon-Small.png */; };
@@ -29,8 +30,9 @@
 		2860E326111B887F00E27156 /* ApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationDelegate.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* BluetoothSwitcher_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothSwitcher_Prefix.pch; sourceTree = "<group>"; };
+		6A0E55DD14F418A000F66A8D /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		6A6860C0129C2F5700992C02 /* BluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothManager.h; sourceTree = "<group>"; };
-		6A68620E129C423300992C02 /* UIApplication+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "UIApplication+Private.h"; sourceTree = "<group>"; };
+		6A68620E129C423300992C02 /* UIApplication+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Private.h"; sourceTree = "<group>"; };
 		6AAF12A612B8DDEB0010B874 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		6AAF12A712B8DDEC0010B874 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		6AAF12A812B8DDEC0010B874 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				6A686167129C3A4E00992C02 /* Icons */,
 				6AAF12B212B8DE730010B874 /* Settings.bundle */,
 				8D1107310486CEB800E47090 /* BluetoothSwitcher-Info.plist */,
+				6A0E55DD14F418A000F66A8D /* Entitlements.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				6AAF12B012B8DDED0010B874 /* Icon.png in Resources */,
 				6AAF12B112B8DDED0010B874 /* Icon@2x.png in Resources */,
 				6AAF12B312B8DE730010B874 /* Settings.bundle in Resources */,
+				6A0E55DE14F418A000F66A8D /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +214,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -228,6 +233,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -240,6 +246,43 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		6A0E55DB14F4176300F66A8D /* Ad-Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Ad-Hoc";
+		};
+		6A0E55DC14F4176300F66A8D /* Ad-Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = BluetoothSwitcher_Prefix.pch;
+				INFOPLIST_FILE = "BluetoothSwitcher-Info.plist";
+				PRODUCT_NAME = BluetoothSwitcher;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad-Hoc";
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -286,6 +329,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				6A0E55DC14F4176300F66A8D /* Ad-Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -295,6 +339,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				6A0E55DB14F4176300F66A8D /* Ad-Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
