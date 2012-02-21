@@ -1,0 +1,1 @@
+Also has a setting to display bluetooth status as a badge.

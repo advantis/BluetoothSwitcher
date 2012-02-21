@@ -1,0 +1,10 @@
+//
+//  Copyright © 2010 Yuri Kotov
+//  Licensed under the MIT license: http://opensource.org/licenses/MIT
+//  Latest version can be found at http://github.com/advantis/BluetoothSwitcher
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
